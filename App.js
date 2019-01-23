@@ -1,19 +1,17 @@
 import React, {Component} from 'react';
-import { View, Text, WebView } from 'react-native';
-import htmlContent from './constants';
+import { Provider } from 'react-redux';
+import GateKeeper from './components/gateKeeper';
+import configureStore from './store';
+
+const store = configureStore();
 
 export default class App extends Component {
-
-
-    render()     {
-      return (
-          <WebView
-              originWhitelist={['*']}
-              automaticallyAdjustContentInsets
-              source={{ html: htmlContent }}
-              style={{flex: 1}}
-              mixedContentMode='always'
-          />
-    );
-    }
+  render() {
+    return (
+      <Provider store={ store }>
+        <GateKeeper />
+      </Provider>
+  );
+  }
 }
+
