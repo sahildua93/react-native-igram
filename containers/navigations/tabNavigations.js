@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
-import { Text, View } from 'react-native';
+import React from 'react';
+import { createBottomTabNavigator } from 'react-navigation';
 import IonIcons from 'react-native-vector-icons/Ionicons';
-import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Home from '../dashboard';
 import Search from '../search';
 import Profile from '../profile';
@@ -9,7 +8,7 @@ import Profile from '../profile';
 const TabNavigator = createBottomTabNavigator(
   {
     Home: Home,
-    Search: Search,
+    Search: { screen: Search, },
     Profile: { screen: props => <Profile { ...props } /> },
   },
   {
@@ -25,8 +24,7 @@ const TabNavigator = createBottomTabNavigator(
             break;
           case 'Profile': iconName = 'md-person';
         }
-        // You can return any component that you like here!
-        return <IconComponent name={iconName} size={25} color={tintColor} />;
+        return <IconComponent name={ iconName } size={25} color={ tintColor } />;
       },
     }),
     tabBarOptions: {
@@ -35,7 +33,7 @@ const TabNavigator = createBottomTabNavigator(
       showLabel: false,
       lazy: true,
       style: {
-        backgroundColor: '#EEEEEE',
+        backgroundColor: '#eeeeee',
         borderTopColor: '#000000',
         borderTopWidth: 0.5
       }
@@ -43,4 +41,4 @@ const TabNavigator = createBottomTabNavigator(
   }
 );
 
-export default createAppContainer(TabNavigator);
+export default TabNavigator;

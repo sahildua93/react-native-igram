@@ -1,14 +1,6 @@
-import React, { Component, Fragment } from 'react';
-import TabNavigator from './tabNavigations';
-import Header from '../header';
-class App extends Component {
-  render() {
-    return(
-      <Fragment>
-        <Header />
-        <TabNavigator />
-      </Fragment>
-    )
-  }
-}
+import React from 'react';
+import StackNavigator from './stackNavigator';
+
+const App = () => <StackNavigator />;
+
 export default App;

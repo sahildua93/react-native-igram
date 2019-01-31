@@ -1,6 +1,7 @@
-
+import { staticData } from '../constants';
 const initialState = {
   token: '',
+  data: staticData,
 };
 
 const setToken = (state, { token }) => ({ ...state, token });
